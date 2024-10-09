@@ -8,41 +8,34 @@ Sockets Links.
 3. Send message to the client and receive the message from the client using the Socket module in
  server .
 4. Send and receive the message using the send function in socket.
-## PROGRAM
-### Client.py:
-```python
-import socket 
-s=socket.socket() 
-s.connect(('localhost',8000)) 
-while True: 
-    msg=input("Client > ") 
-    s.send(msg.encode()) 
-    print("Server > ",s.recv(1024).decode())  
+## PROGRAM:
+## CLIENT:
 ```
-### Server.py:
-```python
-import socket 
-s=socket.socket() 
-s.bind(('localhost',8000)) 
-s.listen(5) 
-c,addr=s.accept() 
-while True: 
-    ClientMessage=c.recv(1024).decode() 
-    c.send(ClientMessage.encode())
+
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+ msg=input("Client > ")
+ s.send(msg.encode())
+ print("Server > ",s.recv(1024).decode())
+```
+## SERVER:
+```
+import socket
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+while True:
+ ClientMessage=c.recv(1024).decode()
+ c.send(ClientMessage.encode())
 ```
 ## OUPUT:
-### Client.py
-![image](https://github.com/Yogeshvar005/3a.Sockets_Creation_for_Echo_Client_and_Echo_Server/assets/113497367/021a651f-b8ed-45fd-a633-d88edbba5423)
-
-
-### Server.py
-![image](https://github.com/Yogeshvar005/3a.Sockets_Creation_for_Echo_Client_and_Echo_Server/assets/113497367/578187f7-1eb6-44b2-b059-05fc57945c2d)
-
-
-
-
-
-
+## CLIENT:
+![WhatsApp Image 2024-04-11 at 14 15 00_5a28ad07](https://github.com/23002027/3a.Sockets_Creation_for_Echo_Client_and_Echo_Server/assets/139752981/7a6579f1-6e60-45bd-b2c6-39d3e203704a)
+## SERVER:
+![WhatsApp Image 2024-04-11 at 14 15 15_d753fdc8](https://github.com/23002027/3a.Sockets_Creation_for_Echo_Client_and_Echo_Server/assets/139752981/ae3747b9-656f-47e6-8f9b-341ff1448b25)
 ## RESULT
 Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links 
 was successfully created and executed.
